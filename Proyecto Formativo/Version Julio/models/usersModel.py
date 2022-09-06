@@ -1,3 +1,4 @@
+
 from database.dataSource import DataSource
 from database.settings import conexion
 
@@ -9,38 +10,26 @@ con = DataSource (
     conexion["port"],
     conexion["tipo_bd"]
 )
-# ver Carrusel ******************************************************************************
-def verCarruselmodel (id = ""):
+# ver usuarios ******************************************************************************
+def verCarruselModel(id=""):
     sql = """
-        select
+        SELECT
             id,
             img,
-            descripcion,
+            decripcion,
             url,
             fecha_inicio,
             fecha_fin,
             estado
-        from 
-           carrusel
+        FROM
+            carrusel
     """
 
-    #en caso de seleccionar un usuario
+# en caso de seleccionar un usuario especifico **********************************************
     if len(id) != 0:
         sql += """
-            WHERE usuario like '%{0}%'
+            WHERE decripcion like '%{0}%'
         """.format (id)
-    
-    return con.getData(sql)
-
-# Ver usuarios ***************************************************************************
-def verusuario (usuario= "", password=""):
-    sql="""
-    select (usuario),(password) from usuario
-    """
-    if  len(usuario) != 0:
-       sql += """
-            where usuario='{0}' and password='{1}'
-        """.format (usuario,password)
     return con.getData(sql)
 
 

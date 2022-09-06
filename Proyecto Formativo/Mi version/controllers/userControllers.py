@@ -1,29 +1,34 @@
-import re
-from unittest import result
 from models.usersModel import *
 from flask import jsonify
 
-# ver usuarios *********************************************************
-def verCarruselControllers(id=""):
-
-    datos = verCarruselModel(id)
-
+# ver usuarios ***************************************************************
+def verusuariocontrol (usuario = ""):
+    data = verusuario(usuario)
     result = []
+    for row in data:
+        content = {
+                'id':row[0],
+                'usuario':row[1],
+                'paswword':row[2],  
+            }
+        result.append(content)
+    return jsonify(result)
 
-    # estructura formato json
-    for row in datos:
-        contenido = {
-            'id':row[0],
-            'img':row[1],
-            'descripcion':row[2]
-            'url':row[3]
-            'fecha_inicio':row[4]
-            'fecha_fin':row[5]
-            'estado':row[6]
-
-        }
-        result.append(contenido)
-    
+# Ver Carrusel ***************************************************************
+def verCarruselcontrol (id = ""):
+    data = verCarruselmodel(id)
+    result = []
+    for row in data:
+        content = {
+                'id':row[0],
+                'img':row[1],
+                'descripcion':row[2],
+                'urlink':row[3],
+                'fecha_inicio':row[4],
+                'fecha_fin':row[5],
+                'estado':row[6]
+            }
+        result.append(content)
     return jsonify(result)
 
 # crear usuarios **************************************************************
