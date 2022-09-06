@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/style2.css") }}>
+    <title>Formulario menu</title>
+</head>
+
+<body>
+    <header class="datosUsuario">
+        <div class="imagePerfil">
+            <img class="fotoPerfil" src={{ url_for("static", filename="img/fotoPerfil.png") }}>
+            <div class="btnimage">
+                <p class="text">Foto Usuario</p>
+                <input class="ingresarfoto" type="file" name="imagen">
+            </div>
+            
+        </div>
+         <div class="datosPerfil">
+            <p>
+                Nombre: Andrea Aranda Gaviria <br>
+                Tipo documento: Cedula <br>
+                Número documento: 1010098963 <br>
+                Celular: 3205518561 <br>
+                Rol: Aprediz
+            </p>
+            <input class="btnEditar" type="button" value="Editar">
+        </div>
+    </header>
+    <section class="datosEquipo">
+        <div class="equipo">
+            <table>
+
+                <tr>
+                    <th>Primer Equipo</th>
+                    <th>Segundo Equipo</th>
+                    <th>Tercer Equipo</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="fotoEquipo" src={{ url_for("static", filename="img/fotoPerfil.png") }} alt="fotoEquipo">
+                        <p>
+                            Serial <br>
+                            Marca <br>
+                            Modelo
+                        </p>
+                        <input class="detalles" type="text" placeholder="Detalles">
+                        <p></p>
+                    </td>
+                    <td>
+                        <img class="fotoEquipo" src={{ url_for("static", filename="img/fotoPerfil.png") }} alt="fotoEquipo">
+                        <p>
+                            Serial <br>
+                            Marca <br>
+                            Modelo
+                        </p>
+                        <input class="detalles" type="text" placeholder="Detalles">
+                        <p></p>
+                    </td>
+                    <td>
+                        <img class="fotoEquipo" src={{ url_for("static", filename="img/fotoPerfil.png") }} alt="fotoEquipo">
+                        <p>
+                            Serial <br>
+                            Marca <br>
+                            Modelo
+                        </p>
+                        <input class="detalles" type="text" placeholder="Detalles">
+                        <p></p>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="buttons">
+            <input class="btn" type="button" value="Agregar"><br>
+            <input class="btn" type="button" value="Eliminar"><br>
+            <input class="btn" type="button" value="Modificar"><br>
+            <input class="btn" type="button" value="Codigo QR">
+        </div>
+    </section>
+</body>
+
+</html>

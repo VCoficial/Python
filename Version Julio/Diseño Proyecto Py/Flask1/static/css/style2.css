@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: arial;
+    background-color: rgb(156, 206, 226);
+}
+.datosUsuario{
+    display: flex;
+    text-align: center;
+    padding: 200px;
+    background-color: rgb(55, 169, 173);
+    margin: auto;
+    padding: 20px 30px;
+}
+.datosEquipo{
+    display: flex;
+    text-align: center;
+    margin: auto;
+    padding: 20px 30px;
+}
+.imagePerfil{
+    width: 20%;
+
+}
+.datosPerfil{
+    width: 60%;
+    text-align:justify;
+    margin-top: 3%;
+    margin-left: 30%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+.fotoPerfil{
+    width: 50%;
+}
+.btnEditar{
+    width: 20%;
+    padding: 10px;
+    margin-top: 3%;
+    margin-left: 60%;
+    background-color: rgb(45, 128, 128);
+    color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 5px 4px #000;
+}
+.detalles{
+    width: 80%;
+    border: 1px solid rgb(85, 132, 138);
+    margin-bottom: 15px;
+    padding: 11px 10px;
+    background-color: rgb(55, 169, 173);
+    font-size: 14px;
+    font-weight: bold;
+}
+::placeholder{
+    color: #ffffff;
+}
+.equipo{
+    width: 80%;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.text{
+    text-align: center;
+    color: white;
+    padding: 15px;
+}
+.btnimage{
+    width: 100%;
+    background-color: rgb(85, 132, 138);
+    border-radius: 5px;
+    box-shadow: 0px 3px 0px #000; 
+}
+.ingresarfoto{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    opacity: 0;
+}
+.buttons{
+    width: 50%;
+}
+.btn{
+    width: 20%;
+    padding: 10px;
+    margin-top: 5%;
+    background-color: rgb(45, 128, 128);
+    color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 5px 4px #000;
+}
+

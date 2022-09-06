@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: arial;
+    background-color: rgb(156, 206, 226);
+}
+.datosUsuario{
+    display: flex;
+    text-align: center;
+    padding: 200px;
+    background-color: rgb(55, 169, 173);
+    margin: auto;
+    padding: 20px 30px;
+}
+.datosEquipo{
+    display: flex;
+    text-align: center;
+    margin: auto;
+    padding: 20px 30px;
+}
+.imagePerfil{
+    width: 20%;
+
+}
+.datosPerfil{
+    width: 60%;
+    text-align:justify;
+    margin-top: 3%;
+    margin-left: 30%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+.fotoPerfil{
+    width: 50%;
+}
+.detalles{
+    width: 80%;
+    border: 1px solid rgb(85, 132, 138);
+    margin-bottom: 15px;
+    padding: 11px 10px;
+    background-color: rgb(55, 169, 173);
+    font-size: 14px;
+    font-weight: bold;
+}
+::placeholder{
+    color: #ffffff;
+}
+.tabla{
+    width: 50%;
+}
+.buttons{
+    width: 50%;
+}
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.btn{
+    width: 30%;
+    padding: 10px;
+    margin-top: 5%;
+    margin-left: 10%;
+    background-color: rgb(45, 128, 128);
+    color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 5px 4px #000;
+}
+
+

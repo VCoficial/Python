@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/style.css") }}>
+    <title>Formulario login</title>
+</head>
+<body>
+    <section class="form-login">
+        <h5>Formulario Registro</h5>
+        <input class="controls" type="text" name="Nombre" placeholder="Nombre Completo">
+        <label class="controldoc">Tipo de documento <select name="tipoDocumento"></select></label>
+        <input class="controls" type="text" name="Documento" placeholder="Numero de Documento">
+        <input class="controls" type="text" name="Celular" placeholder="Celular">
+        <input class="controls" type="text" name="Rol" placeholder="Rol">
+        <input class="controls" type="text" name="Password" placeholder="Contraseña">
+        <div class="btnimage">
+            <p class="text">Foto Usuario</p>
+            <input class="ingresarfoto" type="file" name="imagen"/>
+        </div>
+        <label class="controldoc"><input type="checkbox" value="first_checkbox"> Aceptar Terminos y condiciones</label>
+        <input class="buttonregist" type="submit" value="Registrarme">
+        <input class="buttonregist" type="submit" value="Cancelar">
+        <p><a href="#">Ya estoy registrado</a></p>
+    </section>
+</body>
+</html>
