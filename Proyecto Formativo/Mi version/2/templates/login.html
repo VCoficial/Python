@@ -183,66 +183,98 @@
               Crear una Ahora</a>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content" style="background: rgb(25, 25, 26);">
-                  <div class="modal-header border-0">
-                    <img src="./Assets/Img/logoSena.png" class="img-fluid" alt="" style="width: 3rem;">
-                    <h5 class="modal-title" id="exampleModalLabel">Registrar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                    <form class=form action="/registro" method="POST">
-                      <div class="modal-body">                      
-                        <div class="mb-4">
-                        <label for="tipo" class="form-label fw-bold">Tipo</label>
-                        <select class="form-select form-control border-0 mb-2" name="tipo" style="background: #43494A;"
-                          aria-label="Default select example">
-                          <option selected>Seleccionar rol</option>
-                          <option value="1">cedula</option>
-                          <option value="2">tarjeta de identidad</option>
-                        </select>
-                      </div>
-                      <div class="mb-4">
-                        <label for="documento" class="form-label fw-bold">Documento</label>
-                        <input type="text" name="email" class="form-control border-0" style="background: #43494A;"
-                          placeholder="Ingrese su documento de identidad" id="exampleInputEmail1"
-                          aria-describedby="emailHelp">
-                      </div>
-                      <div class="mb-4">
-                        <label for="contraseña" class="form-label fw-bold">Contraseña</label>
-                        <input type="password" name="password" class="form-control border-0 mb-2" style="background: #43494A;"
-                          placeholder="Ingrese su contraseña" id="exampleInputPassword1">
-                      </div>
-                      <div class="mb-4">
-                        <label for="nombre" class="form-label fw-bold">Nombre</label>
-                        <input type="text" name="nombre" class="form-control border-0 mb-2" style="background: #43494A;"
-                          placeholder="Ingrese su nombre" id="exampleInputPassword1">
-                      </div>
-                      <div class="mb-4">
-                        <label for="apellido" class="form-label fw-bold">Apellido</label>
-                        <input type="text" name="apellido" class="form-control border-0 mb-2" style="background: #43494A;"
-                          placeholder="Ingrese su nombre" id="exampleInputPassword1">
-                      </div>
-                      <div class="mb-4">
-                        <label for="apellido" class="form-label fw-bold">Correo</label>
-                        <input type="text" name="correo" class="form-control border-0 mb-2" style="background: #43494A;"
-                          placeholder="Ingrese su nombre" id="exampleInputPassword1">
-                      </div>
-                      <div class="mb-4">
-                        <label for="telefono" class="form-label fw-bold"></label>Telefono</label>
-                        <input type="text" name="telefono" class="form-control border-0 mb-2" style="background: #43494A;"
-                          placeholder="Ingrese su telefono" id="exampleInputPassword1">
-                      </div>
-                  </div>
-                  <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-secondary text-light fw-bold"
-                      data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-light text-colorfw-bold fw-bold boton">Guardar</button>
-                  </div>
-                </form>
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content" style="background: rgb(25, 25, 26);">
+                <div class="modal-header border-0">
+                  <img src="{{ url_for('static', filename='/Img/logoSena.png') }}" class="img-fluid" alt="" style="width: 3rem;">
+                  <h5 class="modal-title" id="exampleModalLabel">Registrar</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-4">
+                      <label for="tipoDocumento" class="form-label fw-bold">Tipo de Documento</label>
+                      
+                      <select name="tipoDocumento" id="tipoDocumento" class="form-control border-0" style="background: #43494A;"  aria-describedby="emailHelp">
+                        <option value="1">TI</option>
+                        <option value="2">CC</option>
+                        <option value="3">CE</option>
+                        <option value="4">NUIP</option>
+                        <option value="5">Pasaporte</option>
+                      </select>
+                    </div>
+
+                    <div class="mb-4">
+                      <label for="numeroDocumento" class="form-label fw-bold">
+                        Numero de Documento
+                      </label>
+                      <input type="number" required class="form-control border-0 mb-2" style="background: #43494A;"
+                        placeholder="Ingrese su Numero de Documento" id="numeroDocumento" name="numeroDocumento">
+                    </div>
+                    <div class="mb-4">
+                      <label for="nombre" class="form-label fw-bold">Nombre</label>
+                      <input type="text" required class="form-control border-0 mb-2" style="background: #43494A;"
+                        placeholder="Ingrese su nombre" id="nombre" name="nombre">
+                    </div>
+                    <div class="mb-4">
+                      <label for="apellido" class="form-label fw-bold">Apellido</label>
+                      <input type="text" required class="form-control border-0 mb-2" style="background: #43494A;"
+                        placeholder="Ingrese su Apellido" id="apellido" name="apellido">
+                    </div>
+                    <div class="mb-4">
+                      <label for="id_rol" class="form-label fw-bold">Rol</label>
+                      <select name="id_rol" id="id_rol" class="form-select  form-control border-0 mb-2" style="background: #43494A;"
+                      aria-label="Default select example">
+                        <option value="1">Aprendiz</option>
+                        <option value="2">Instructor</option>
+                        <option value="3">Funcionario</option>
+                        <option value="4">Visitante</option>
+                      </select>
+                    </div>
+                    <div class="mb-4">
+                      <label for="contrasena" class="form-label fw-bold">Contraseña</label>
+                      <input type="password" required class="form-control border-0 mb-2" style="background: #43494A;"
+                        placeholder="Ingrese su contraseña" id="contrasena" name="contrasena">
+                    </div>
+                    <div class="mb-4">
+                      <label for="ficha" class="form-label fw-bold">Ficha</label>
+                      <input type="number" required class="form-control border-0 mb-2" style="background: #43494A;"
+                        placeholder="Ingrese Codigo Ficha" id="ficha" name="ficha">
+                    </div>
+                    <div class="mb-4">
+                      <label for="correo" class="form-label fw-bold">Correo Electronico</label>
+                      <input type="email" required class="form-control border-0 mb-2" style="background: #43494A;"
+                        placeholder="Ingrese su telefono" name="correo" id="correo">
+                    </div>
+                    <div class="mb-4">
+                      <label for="telefono" class="form-label fw-bold">N.telefono</label>
+                      <input type="tel" required class="form-control border-0 mb-2" style="background: #43494A;"
+                        placeholder="Ingrese su telefono" id="telefono" name="telefono">
+                    </div>
+                    <div class="mb-4">
+                      <label for="fechaNacimiento" class="form-label fw-bold">Fecha nacimiento</label>
+                      <input type="date" class="form-control border-0 mb-2" style="background: #43494A;"
+                        id="fechaNacimiento" name="fechaNacimiento">
+                    </div>
+                    <div class="mb-4">
+                      <label for="foto" class="form-label fw-bold">Foto</label>
+                      <input type="file" class="form-control border-0 mb-2" style="background: #43494A;"
+                        id="foto" name="foto">
+                    </div>
+              
+                </div>
+                <div class="modal-footer border-0">
+                  <button type="button" class="btn btn-secondary text-light fw-bold"
+                    data-bs-dismiss="modal">Cancelar</button>
+                  <button type="submit"
+                      class="btn btn-light text-color fw-bold">Guardar</button>
+                </div>
+              </form>
               </div>
             </div>
+          </div>
+
           </div>
         </div>
       </div>

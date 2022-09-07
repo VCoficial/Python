@@ -5,13 +5,11 @@ from notifypy import Notify
 from flask_cors import CORS, cross_origin
 from flask import session
 
-from controllers.userControllers import *
-
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'senacta'
+app.config['MYSQL_DB'] = 'adsi'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 mysql = MySQL(app)
 cors = CORS (app)
@@ -38,14 +36,14 @@ def login():
         password = request.form['password']
 
         cur = mysql.connection.cursor()
-        cur.execute("SELECT * FROM usuario WHERE documento=%s",(documento,))
+        cur.execute("SELECT * FROM usuario WHERE numeroDocumento=%s",(documento,))
         user = cur.fetchone()
         cur.close()
 
         if len(user)>0:
-            if password == user["contraseña"]:
+            if password == user["contrasena"]:
                 session['name'] = user['nombre']
-                session['email'] = user['documento']
+                session['email'] = user['numeroDocumento']
                 session['tipo'] = user['id_Rol']
 
                 if session['tipo'] == 1:
@@ -56,7 +54,7 @@ def login():
                 notificacion.title = "Error de Acceso"
                 notificacion.message="Correo o contraseña no valida"
                 notificacion.send()
-                return render_template("templates/login.html")
+                return render_template("login.html")
         else:
             notificacion.title = "Error de Acceso"
             notificacion.message="No existe el usuario"
@@ -82,34 +80,25 @@ def registro():
         return render_template("registro.html", con = con )
     
     else:
-        email = request.form['email']
-        password = request.form['password']
+        documento = request.form['numeroDocumento']
         name = request.form['nombre']
         apellido = request.form['apellido']
+        rol = request.form['id_rol']
+        password = request.form['contrasena']
+        ficha = request.form['ficha']
         tel = request.form['telefono']
-        tipo = request.form['tipo']
+        tipo = request.form['tipoDocumento']
         correo = request.form['correo']
-
+        fecha= request.form['date']
+        foto= request.form['foto']
 
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO usuario (id_tipo, documento, contraseña, nombre, apellido, correo, telefono) VALUES (%s,%s,%s,%s,%s,%s,%s)", (tipo, email, password, name, apellido, correo, tel))
+        cur.execute("INSERT INTO usuario (numeroDocumento, nombre, apellido, id_rol, id_tipo, correo, contrasena, ficha, fechaNacimiento, telefono, foto) VALUES (%s,%s,%s,%s,%s,%s,%s)", (documento, name, apellido, rol, tipo, correo, password, name, ficha, fecha, tel, foto))
         mysql.connection.commit()
         notificacion.title = "Registro Exitoso"
         notificacion.message="ya te encuentras registrado en el programa"
         notificacion.send()
         return redirect(url_for('login'))
-
-#-------------------------------------------------------------------
-#carrusel
-@app.route('/api/carrusel')
-@cross_origin()
-def getAllUsers():
-    return verCarruselcontrol()
-    
-@app.route('/api/usuarios/<id>')
-@cross_origin()
-def getUsers(id):
-    return verCarruselcontrol(id)
 
 if __name__ == '__main__':
     app.secret_key = 'mysecretkey'
