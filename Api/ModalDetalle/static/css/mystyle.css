@@ -1,0 +1,44 @@
+body {
+    font-family: 'Spartan', sans-serif;
+    font-weight: 300;
+    color: #fc7323;
+    margin: 0.5rem;
+}
+
+.text-color {
+    color: #fc7323;
+}
+
+.text-color:hover {
+    color: #fc7323;
+}
+
+.form-control {
+    min-height: 3.125rem;
+    line-height: initial;
+    color: #f8f9fa;
+}
+
+.btn {
+    min-height: 3.125rem;
+    line-height: initial;
+}
+
+.form-control::placeholder{
+    color: #f8f9fa;
+}
+
+.img-1 {
+    background-size: cover;
+    background-position: center;
+}
+
+.img-2 {
+    
+    background-size: cover;
+    background-position: center;
+}
+
+.mi-border-nav {
+    border-bottom: solid #43494A;
+}
