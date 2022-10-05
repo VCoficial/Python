@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/index.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+  <title>Inicio</title>
+
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid " id="header">
+      <div class="row">
+        <nav class="navbar navbar-dark">
+          <div class="container-fluid bg-dark py-2">
+            <div class="col">
+              <img src="{{ url_for('static', filename='img/logoSENA.png') }}" width="15%" alt="">
+            </div>
+            <div class="col col-lg-8" style="color: #ff5100; padding-top: 1%;">
+              <H2>GESTIONA TU INFORMACIÓN</H2>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            &nbsp;&nbsp;&nbsp;
+            <button class="btn" onclick="cerrarSesion()" style="background-color: #ff5100; color: #f0f8ff;">
+              Cerrar sesion
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="row">
+
+                    <div class="card-fluid">
+                      <img src="{{ url_for('static', filename='img/usuarios/photos/'+session["du"][4]+'.png') }}" class="card-fluid" alt="" width="200px">
+                    </div>
+                    
+                    <div class="card-fluid">
+                      <br>
+                      <img src="{{ url_for('static', filename='img/usuarios/QR/'+session["du"][4]+'.png') }}" class="card-fluid" alt="" width="200px">
+                    </div>
+
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <form>
+                    <div class="mb-3">
+                      <label for="exampleInputtext1" class="form-label text-light">Nombres:</label>
+                      <input type="text" class="form-control" id="exampleInputtext1" value="{{ session["du"][1] }}">
+                      <label for="exampleInputtext2" class="form-label text-light">Apellidos:</label>
+                      <input type="text" class="form-control" id="exampleInputtext2" value="{{ session["du"][2] }}">
+                      <label for="exampleInputtext2" class="form-label text-light">Identificacion:</label>
+                      <input type="number" class="form-control" id="exampleInputtext2" value="{{ session["du"][4] }}">
+                      <label for="exampleInputtext1" class="form-label text-light">Correo:</label>
+                      <input type="email" class="form-control" id="exampleInputtext1" value="{{ session["du"][6] }}">
+                      <label for="exampleInputtext1" class="form-label text-light">Telefono:</label>
+                      <input type="tel" class="form-control" id="exampleInputtext1" value="{{ session["du"][7] }}">
+                      <label for="exampleInputtext1" class="form-label text-light">Ficha:</label>
+                      <input type="number" class="form-control" id="exampleInputtext1" value="{{ session["du"][8] }}">
+                      <label for="exampleInputtext1" class="form-label text-light">Foto:</label>
+                      <input type="file" class="form-control" id="exampleInputtext1" value="{{ session["du"][8] }}">
+                      
+                      <div class="button-group" style="margin: 1%;">
+                        <button class="btn" style="background-color: #ff5100; color: #f0f8ff;">
+                          Modificar</button>
+                        <button class="btn" style="background-color: #ff5100; color: #f0f8ff;" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
+                          aria-label="Toggle navigation">
+                          Minimizar
+                        </button>
+                      </div>
+
+                      </div>
+
+
+                  </form>
+                </div>
+              </div>
+
+
+
+            </div>
+
+
+
+
+
+          </div>
+        </nav>
+      </div>
+    </div>
+
+  </header>
+
+  <div class="container-fluid mt-3">
+    <div class="row">
+      <div class="col-md-6 mb-2 ms-4">
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <button type="button" class="btn bg-dark fs-6"><span style="color:#ff5100 ;">Buscar</span></button>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="nombre" class="form-control">
+          </div>
+          <div class="col-auto">
+            <span id="passwordHelpInline" class="form-text fs-6">
+              Buscar por nombre.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- 
+                CAROUSEL 
+              -->
+            <div class="col-md-6">
+              <div  id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators" id = "carruselBotones" >
+
+                </div>
+                
+                <div class="carousel-inner" id="carrusel" style="height: 300px;">
+                 
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              <!-- 
+                    CARD EQUIPO 1 
+                  -->
+              <div id="infoequipo1" class="equipo1">
+                <img src="https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c06927801.png"
+                  class="img-thumbnail" alt="...">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title text-dark">HP</h5>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item fst-italic">Num. Serie</li>
+                    <li class="list-group-item fst-italic">Color</li>
+                    <li class="list-group-item fst-italic">Cargador</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEquipo1">
+                      <p class="fst-italic text-dark">Detalles.</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- 
+                    CARD EQUIPO 2
+                  -->
+              <div id="infoequipo2" class="equipo2">
+                <img
+                  src="https://www.ktronix.com/medias/4710180728637-002-750Wx750H?context=bWFzdGVyfGltYWdlc3wyMDk2Nzl8aW1hZ2UvcG5nfGltYWdlcy9oMTEvaGQ1LzkzNDk5NDYzMTA2ODYucG5nfGQ4MGQ2ZGUzYTBmZDI2ZWEyNmJlZDY2NzM5NTU2ZmEzOWZlNWM0MWM5NTgyYWIyNTBjMDhiZmUyZDFiYzYxNzc"
+                  class="img-thumbnail" alt="...">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title text-dark">ACER</h5>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item fst-italic">Num. Serie</li>
+                    <li class="list-group-item fst-italic">Color</li>
+                    <li class="list-group-item fst-italic">Cargador</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEquipo2">
+                      <p class="fst-italic text-dark">Detalles.</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- 
+                    CARD EQUIPO 3
+                  -->
+              <div id="infoequipo3" class="equipo3">
+                <img src="https://www.pngmart.com/files/4/Toshiba-Laptop-PNG-Transparent.png" class="img-thumbnail"
+                  alt="...">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title text-dark">TOSHIBA</h5>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item fst-italic">Num. Serie</li>
+                    <li class="list-group-item fst-italic">Color</li>
+                    <li class="list-group-item fst-italic">Cargador</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEquipo3">
+                      <p class="fst-italic text-dark">Detalles.</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 
+                    IMAGEN QR EQUIPO 1
+                  -->
+            <div id="qr1" class="qr1">
+              <img src="https://static-unitag.com/images/help/QRCode/qrcode.png?mh=07b7c2a2" class="img-thumbnail"
+                alt="...">
+            </div>
+            <!-- 
+                    IMAGEN QR EQUIPO 2
+                  -->
+            <div id="qr2" class="qr2">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Codigo_QR.svg/1200px-Codigo_QR.svg.png"
+                class="img-thumbnail" alt="...">
+            </div>
+            <!-- 
+                    IMAGEN QR EQUIPO 3
+                  -->
+            <div id="qr3" class="qr3">
+              <img src="https://cdn.pixabay.com/photo/2013/07/12/14/45/qr-code-148732_960_720.png" class="img-thumbnail"
+                alt="...">
+            </div>
+            <!-- 
+                  Modal EQUIPO 1
+                -->
+            <div class="modal fade" id="modalEquipo1" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalles...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col">
+                          <p class="text-muted lh-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi
+                            maxime amet itaque delectus! Doloremque fugiat tempora earum, deserunt ipsum nostrum
+                            architecto, ad eveniet obcaecati a quibusdam esse illum. Quod, numquam!
+                            Blanditiis ipsum cum sapiente officiis animi rem. Exercitationem dolores pariatur
+                            repudiandae eveniet dolorem voluptates tempora, error impedit amet reprehenderit
+                            perspiciatis. Vitae hic quasi esse iste odit veritatis ipsum pariatur ad!
+                            Voluptatum tempore temporibus architecto, totam dolor nihil corrupti, necessitatibus,
+                            praesentium nostrum magni culpa quidem saepe esse ad sint natus quasi blanditiis fuga vitae
+                            officia quis quam nemo! Assumenda, sint architecto?
+                            Dolorum quos eos pariatur vel magni esse vero eius, voluptatum a qui ea, dolore eveniet
+                            quisquam quam quasi sapiente! Fuga eaque eius facere! Dolore explicabo eveniet dicta
+                            corrupti aut dolorum?
+                            Enim eos perspiciatis, quis dignissimos voluptatum soluta dicta iure minima quisquam
+                            deleniti tempore ipsam? Eos dolores doloribus reiciendis autem molestiae ipsam incidunt in,
+                            rem deserunt enim quos, sint amet similique.
+                            Aut illo autem reprehenderit aliquid consectetur harum voluptas fugiat voluptatibus nostrum?
+                            Suscipit non officia numquam praesentium aut inventore, neque voluptatem quisquam odio
+                            magnam quis nobis. Sed ipsum earum harum unde.
+                            Officiis error expedita eaque maxime, aliquid repellat pariatur quibusdam quis sunt tenetur
+                            labore aperiam rem delectus iure voluptatibus cupiditate ratione architecto eius! Unde id
+                            blanditiis quam odit vero, laudantium alias?
+                            Modi sint, voluptatem saepe porro fuga quod impedit numquam, voluptatum nobis adipisci a non
+                            eius fugiat fugit error est beatae officia eum alias sunt, iste quae repellendus! Quia,
+                            reprehenderit deleniti!
+                            Eligendi odit consequuntur, distinctio qui rerum repellendus voluptas exercitationem
+                            laboriosam omnis, corporis cumque fuga hic harum accusantium incidunt aspernatur nobis aut
+                            ipsa perferendis a similique in amet. Fugiat, totam voluptates.
+                            Illo at amet perspiciatis sunt ex quas. Aliquam, iure. Sapiente maiores voluptatem sed ipsa
+                            eius velit, explicabo aut dolorum natus iusto sequi voluptas corporis quas quia nam
+                            veritatis doloremque delectus!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="" data-bs-dismiss="modal">
+                      <p class="fst-italic">Cerrar.</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 
+                  Modal EQUIPO 2
+                -->
+            <div class="modal fade" id="modalEquipo2" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalles...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col">
+                          <p class="text-muted lh-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque
+                            eius exercitationem veniam atque labore, fugit adipisci. Accusamus necessitatibus assumenda,
+                            itaque sunt doloribus quo aperiam, debitis ipsam laborum provident, magnam sed?
+                            Voluptates sed odio fugit, incidunt cupiditate autem. Mollitia dolorum, corrupti nihil ab
+                            totam dolorem distinctio nostrum eos laudantium provident fugit quia nulla commodi voluptate
+                            perspiciatis velit, a iusto aperiam quis.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="" data-bs-dismiss="modal">
+                      <p class="fst-italic">Cerrar.</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 
+                  Modal EQUIPO 3
+                -->
+            <div class="modal fade" id="modalEquipo3" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalles...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col">
+                          <p class="text-muted lh-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
+                            optio, pariatur illum corrupti, dolores eum adipisci ad voluptate vero nostrum nisi quod
+                            repellendus esse accusamus animi quaerat. Laborum, labore ad.
+                            Vero consequatur architecto, laboriosam ipsa quia ut delectus? Repellat at ad ipsa nesciunt
+                            hic eveniet porro, a culpa cum officia asperiores in perspiciatis sed quos blanditiis alias
+                            voluptatem quibusdam tenetur?
+                            Molestias sed doloremque velit explicabo ex quia dolorem magni. Hic dignissimos eum,
+                            blanditiis, animi iusto quas sapiente, tempore distinctio quae unde ab quisquam dolorum
+                            excepturi illo non molestias voluptatibus quia.
+                            Doloribus provident doloremque, iusto laboriosam necessitatibus iste autem nobis commodi
+                            aspernatur unde labore quaerat officia. Fugit asperiores dolorum quae nam. Ipsa earum cum
+                            sequi libero pariatur, exercitationem fuga perferendis velit?
+                            Temporibus possimus, aliquid necessitatibus fugit reiciendis ab sunt, saepe, cupiditate
+                            dolorem voluptatum a nostrum minima fugiat ratione! Voluptates, quibusdam fuga corrupti amet
+                            reprehenderit pariatur error ex beatae deleniti aliquam nemo.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="" data-bs-dismiss="modal">
+                      <p class="fst-italic">Cerrar.</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 
+                  INFORMACION EQUIPO
+                -->
+            <!-- 
+                  DATOS DE EQUIPOS
+                -->
+            <div class="col-md-4">
+              <div class="datosE">
+                <h5 class="text-decoration-underline">Datos del equipo</h5>
+              </div>
+              <div class="datosETabla">
+                <table class="table table-hover table-borderless">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col" class="fst-italic">Modelo</th>
+                      <th scope="col" class="fst-italic">Seleccionar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><button type="button" id="equipo1" class="btn btn-outline">
+                          <p class="fst-italic rounded">HP</p>
+                        </button></td>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="modificar1">
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td><button type="button" id="equipo2" class="btn btn-outline">
+                          <p class="fst-italic rounded">ACER</p>
+                        </button></td>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="modificar2">
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td><button type="button" id="equipo3" class="btn btn-outline">
+                          <p class="fst-italic rounded">TOSHIBA</p>
+                        </button></td>
+                      <td>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="modificar3">
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="minicrud">
+                <div class="col">
+                  <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#crear">
+                      <p class="fst-italic rounded">Crear</p>
+                    </button>
+                    <button type="button" class="btn btn-outline" onclick="validarCheck()" id="clickmodificar">
+                      <p class="fst-italic rounded">Modificar</p>
+                    </button>
+                    <button type="button" class="btn btn-outline" id="generarqr">
+                      <p class="fst-italic rounded">Generar QR</p>
+                    </button><br>
+                    <button type="button" class="btn btn-outline" id="btneliminar">
+                      <p class="fst-italic rounded">Eliminar</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 
+                  CRUD CREAR
+                -->
+            <div class="modal fade" id="crear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear equipo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-floating">
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Nombre</p>
+                          <input type="text" class="form-control" id="floatingInputValue" 
+                          placeholder="Nombre" value=" ">
+                        </div>
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Num.Serie</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Num.Serie"
+                            value="">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Color</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Color" value="">
+                        </div>
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Cargador</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Cargador"
+                            value="">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <p class="fst-italic text-start fs-6 fw-bold">Detalles...</p>
+                          <div class="form-floating">
+                            <textarea class="form-control" placeholder="Detalles" id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Detalles</label>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="" data-bs-dismiss="modal">
+                      <p class="fst-italic">Cerrar.</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 
+                  CRUD MODIFICAR EQUIPO 1
+                -->
+            <div class="modal fade" id="modificarequipo1" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modificar Hp</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-floating">
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Nombre</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Nombre" value="">
+                        </div>
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Num.Serie</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Num.Serie"
+                            value="">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Color</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Color" value="">
+                        </div>
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Cargador</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Cargador"
+                            value="">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <p class="fst-italic text-start fs-6 fw-bold">Detalles...</p>
+                          <div class="form-floating">
+                            <textarea class="form-control" placeholder="Detalles" id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Detalles</label>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="" data-bs-dismiss="modal">
+                      <p class="fst-italic">Cerrar.</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 
+                  CRUD MODIFICAR EQUIPO 2
+                -->
+            <div class="modal fade" id="modificarequipo2" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modificar Acer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-floating">
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Nombre</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Nombre" value="">
+                        </div>
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Num.Serie</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Num.Serie"
+                            value="">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Color</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Color" value="">
+                        </div>
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Cargador</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Cargador"
+                            value="">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <p class="fst-italic text-start fs-6 fw-bold">Detalles...</p>
+                          <div class="form-floating">
+                            <textarea class="form-control" placeholder="Detalles" id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Detalles</label>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="" data-bs-dismiss="modal">
+                      <p class="fst-italic">Cerrar.</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 
+                  CRUD MODIFICAR EQUIPO 3
+                -->
+            <div class="modal fade" id="modificarequipo3" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modificar Toshiba</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-floating">
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Nombre</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Nombre" value="">
+                        </div>
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Num.Serie</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Num.Serie"
+                            value="">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Color</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Color" value="">
+                        </div>
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Cargador</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Cargador"
+                            value="">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <p class="fst-italic text-start fs-6 fw-bold">Detalles...</p>
+                          <div class="form-floating">
+                            <textarea class="form-control" placeholder="Detalles" id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Detalles</label>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="" data-bs-dismiss="modal">
+                      <p class="fst-italic">Cerrar.</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 
+                  CRUD GENERAR QR EQUIPO 1
+                -->
+            <div class="modal fade" id="modificarequipo1" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modificar Hp</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-floating">
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Nombre</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Nombre" value="">
+                        </div>
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Num.Serie</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Num.Serie"
+                            value="">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Color</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Color" value="">
+                        </div>
+                        <div class="col-6">
+                          <p class="fst-italic text-start fs-6 fw-bold">Cargador</p>
+                          <input type="text" class="form-control" id="floatingInputValue" placeholder="Cargador"
+                            value="">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <p class="fst-italic text-start fs-6 fw-bold">Detalles...</p>
+                          <div class="form-floating">
+                            <textarea class="form-control" placeholder="Detalles" id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Detalles</label>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="" data-bs-dismiss="modal">
+                      <p class="fst-italic">Cerrar.</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container-fluid my-5" style="color:#ff5100">
+      <h3>Manten tu información actualizada</h3>
+    </div>
+  </footer>
+  <script src="{{ url_for('static', filename='js/perfil.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/eventos.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<script src="{{ url_for('static', filename='js/carrusel.js') }}"></script>

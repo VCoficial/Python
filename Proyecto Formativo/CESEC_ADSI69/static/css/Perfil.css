@@ -1,0 +1,175 @@
+.container-fluid{
+    background-color:white;
+    height: 100%;
+}
+
+.container-fluid header div{
+    background-color:#238276 ;
+}
+
+/*-------Header------*/
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulonav{
+    width: 60%;
+    text-align: center;
+}
+
+/*-------Datos-del-usuario------*/
+
+.datosUsuario .row{
+    background-color: white;
+    justify-content: space-around;
+    padding-top: 1%;
+}
+
+/*-------Datos-del-usuario  IMAGEN USUARIO------*/
+.datosUsuario .row .col-2,.col-1{
+    display: table;
+}
+
+.datosUsuario .row .col-2 .col{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.datosUsuario .row .col-2 .col img{
+    width: 70%;
+}
+
+/*-------Datos-del-usuario  VER MAS Y MODIFICAR------*/
+.opcionesUsuario{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.opcionesUsuario a, .modal-footer a, .minicrud .col button{
+    color: #fc7323;
+    text-decoration: none;
+}
+
+/*-------MODALES------*/
+.modal-footer{
+    height: 60px;
+}
+
+.modal-header{
+    background-color:#238276;
+}
+
+.modal-footer a{
+    height: 80%;
+}
+
+/*-------Datos-del-usuario  IMAGEN SENA PNG NEGRA------*/
+.datosUsuario .row .col-3{
+    display: table;
+}
+
+.imgsena{
+    display: table-cell;
+    vertical-align: middle;
+}
+.datosUsuario .row .col-3 img{
+    width: 70%;
+    border: solid 1px;
+    background-color:#238276;
+    border-radius: 4rem;
+}
+
+/*-------Datos del equipo-------*/
+.col-md-4{
+    text-align: center;
+}
+
+td button{
+    height:2.5rem;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+td button p{
+    color: #fc7323;
+    background-color: #dbdada;
+    width: 6rem;
+}
+
+.datosETabla{
+    padding-top: 1%;
+}
+
+#carouselExampleIndicators{
+    z-index: 3;
+    opacity: 1;
+}
+
+/*-------iNFORMACION del equipo-------*/
+.card-title, .card-body{
+    text-align: center;
+}
+.row{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#infoequipo1, #infoequipo2, #infoequipo3, #qr1, #qr2, #qr3{
+    position: absolute;
+    width: 50%;
+    z-index: 1;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 4%;
+    margin-left: 0.5%;
+}
+
+#qr1, #qr2, #qr3{
+    width: 41%;
+    margin-left: 5%;
+}
+
+.img-thumbnail{
+    width: 45%;
+}
+
+.card-body{
+    background-color:#ff5100;
+    height: 3rem;
+}
+
+.card-body a p{
+    text-decoration: none;
+    color: white;
+}
+
+.card-body h5{
+    color: white;
+}
+
+.card-body a{
+    text-decoration: none;
+}
+
+.minicrud .col{
+    margin-top: 20%; 
+    display: flex;
+    justify-content: center;
+    margin-right: 23%;
+}
+
+.minicrud .col button{
+    height: 2.6rem;
+    margin: 0.6rem;
+    border-radius: 1rem;
+    background-color: #dbdada;
+}
+
+
