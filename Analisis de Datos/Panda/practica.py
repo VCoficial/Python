@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv("datos/equipos.data")
+df = pd.read_csv("Analisis de Datos\datos\equipos.data")
 
 # 1.Organice la cabecera 
 cabecera = ["victorias", "derrotas", "empates", "otros", "equipos"]

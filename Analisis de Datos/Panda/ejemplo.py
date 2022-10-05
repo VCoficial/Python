@@ -29,7 +29,7 @@ print (df)
 # https://archive.ics.uci.edu/ml/datasets/Iris
 
 # lectura de datos
-df = pd.read_csv("datos/iris.data")
+df = pd.read_csv("Analisis de Datos\datos\iris.data")
 
 print ( df )
 
